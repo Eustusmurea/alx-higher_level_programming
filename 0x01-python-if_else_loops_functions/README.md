@@ -1,7 +1,4 @@
 
-
-This repository contains a collection of code examples demonstrating various programming concepts using Python and C programming languages. These examples were created as part of the 0x01. Python - if/else, loops, functions module for the ALX Software Engineering program.
-
 ## Python Code Examples
 
 ### 1. `# 2-print_alphabet.py`
