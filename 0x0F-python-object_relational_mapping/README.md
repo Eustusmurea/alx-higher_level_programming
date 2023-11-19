@@ -83,7 +83,3 @@ What you should learn from this project:
 ### [17. From city](./102-relationship_cities_states_list.py)
 * Write a script that lists all City objects from the database hbtn_0e_101_usa 
 
----
-
-## Author
-* **Wolf Hopkins** - [Zevrov](https://github.com/Zevrov)
