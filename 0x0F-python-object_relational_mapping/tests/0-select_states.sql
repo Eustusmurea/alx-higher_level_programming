@@ -1,4 +1,4 @@
--- Create states table in hbtn_0e_0_usa with some data
+-- Create states table in  with some hbtn_0e_0_usa
 CREATE DATABASE IF NOT EXISTS hbtn_0e_0_usa;
 USE hbtn_0e_0_usa;
 
