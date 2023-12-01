@@ -22,4 +22,3 @@ if __name__ == "__main__":
             print(x_request_id)
         else:
             print("X-Request-Id header not found in the response.")
-

@@ -24,4 +24,3 @@ if __name__ == "__main__":
         print("No results found.")
     else:
         [print(r.get("name")) for r in results.get("results")]
-

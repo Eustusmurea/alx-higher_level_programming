@@ -19,14 +19,13 @@ if __name__ == "__main__":
 Usage: ./10-my_github.py <GitHub username> <GitHub password>
   - Uses Basic Authentication to access the ID.
 """
-import sys
-import requests
-from requests.auth import HTTPBasicAuth
 
 if __name__ == "__main__":
     # Check if the required command-line arguments are provided
     if len(sys.argv) != 3:
-        print("Usage: {} <GitHub username> <GitHub password>".format(sys.argv[0]))
+        print(
+            "Usage: {} <GitHub username> <GitHub password>".format(
+                sys.argv[0]))
         sys.exit(1)
 
     auth = HTTPBasicAuth(sys.argv[1], sys.argv[2])

@@ -15,7 +15,9 @@ def get_results(url, params):
 
     # Check if the request was successful (status code 200)
     if response.status_code != 200:
-        print("Error: Unable to fetch data from SWAPI. Status code: {}".format(response.status_code))
+        print(
+            "Error: Unable to fetch data from SWAPI. Status code: {}".format(
+                response.status_code))
         sys.exit(1)
 
     return response.json()
@@ -43,7 +45,7 @@ if __name__ == "__main__":
 
         next_page = results.get("next")
         if next_page is not None:
-            results = get_results(next_page, {})  # Send a request to the next page
+            # Send a request to the next page
+            results = get_results(next_page, {})
         else:
             break
-

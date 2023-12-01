@@ -12,7 +12,9 @@ import requests
 
 
 def print_usage():
-    print("Usage: {} <consumer key> <consumer secret> <search string>".format(sys.argv[0]))
+    print(
+        "Usage: {} <consumer key> <consumer secret> <search string>".format(
+            sys.argv[0]))
     sys.exit(1)
 
 
@@ -23,7 +25,7 @@ if __name__ == "__main__":
 
     # Get bearer token
     url = "https://api.twitter.com/oauth2/token"
-    
+
     # Ensure that the provided arguments are not empty
     if not all(sys.argv[1:4]):
         print("Error: Consumer key, consumer secret, and search string cannot be empty.")
@@ -58,4 +60,3 @@ if __name__ == "__main__":
         tweet_text = t.get("text")
         tweet_author = t.get("user").get("name")
         print("[{}] {} by {}".format(tweet_id, tweet_text, tweet_author))
-
