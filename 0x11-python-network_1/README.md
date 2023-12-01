@@ -107,3 +107,6 @@ Star Wars API, GitHub API, and Twitter API).
 	* Displays the the top 5 results in the format
   `[<Tweet ID>] <Tweet text> by <Tweet owner name>`.
   * Uses `requests`.
+ 
+
+ Author: Eustus Mwirigi
