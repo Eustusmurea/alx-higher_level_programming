@@ -12,22 +12,27 @@ import requests
 
 
 if __name__ == "__main__":
+    # Check if the required command-line argument is provided
+    if len(sys.argv) != 2:
+        print("Usage: {} <search string>".format(sys.argv[0]))
+        sys.exit(1)
+
     url = "https://swapi.co/api/people"
     params = {"search": sys.argv[1]}
     results = requests.get(url, params=params).json()
 
-    count = results.get("count")
     print("Number of results: {}".format(results.get("count")))
 
-    c = 0
-    while c < count:
+    for c, r in enumerate(results.get("results"), start=1):
+        print(r.get("name"))
+        for link in r.get("films"):
+            film = requests.get(link).json()
+            print("\t{}".format(film.get("title")))
+
+    while results.get("next"):
+        results = requests.get(results.get("next")).json()
         for r in results.get("results"):
             print(r.get("name"))
             for link in r.get("films"):
                 film = requests.get(link).json()
                 print("\t{}".format(film.get("title")))
-            c += 1
-
-        next_page = results.get("next")
-        if next_page is not None:
-            results = requests.get(next_page).json()

@@ -10,10 +10,27 @@ import sys
 import requests
 
 
+def get_results(url, params):
+    response = requests.get(url, params=params)
+
+    # Check if the request was successful (status code 200)
+    if response.status_code != 200:
+        print("Error: Unable to fetch data from SWAPI. Status code: {}".format(response.status_code))
+        sys.exit(1)
+
+    return response.json()
+
+
 if __name__ == "__main__":
+    # Check if the required command-line argument is provided
+    if len(sys.argv) != 2:
+        print("Usage: {} <search string>".format(sys.argv[0]))
+        sys.exit(1)
+
+    search_query = sys.argv[1]
     url = "https://swapi.co/api/people"
-    params = {"search": sys.argv[1]}
-    results = requests.get(url, params=params).json()
+    params = {"search": search_query}
+    results = get_results(url, params)
 
     count = results.get("count")
     print("Number of results: {}".format(count))
@@ -26,4 +43,7 @@ if __name__ == "__main__":
 
         next_page = results.get("next")
         if next_page is not None:
-            results = requests.get(next_page).json()
+            results = get_results(next_page, {})  # Send a request to the next page
+        else:
+            break
+

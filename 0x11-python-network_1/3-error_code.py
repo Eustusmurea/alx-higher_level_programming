@@ -10,8 +10,12 @@ import urllib.request
 
 
 if __name__ == "__main__":
-    url = sys.argv[1]
 
+    if len(sys.argv) != 2:
+        print("Usage: {} <URL>".format(sys.argv[0]))
+        sys.exit(1)
+
+    url = sys.argv[1]
     request = urllib.request.Request(url)
     try:
         with urllib.request.urlopen(request) as response:
