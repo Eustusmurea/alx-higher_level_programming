@@ -38,4 +38,3 @@ request.get(apiUrl, { json: true }, (error, response, body) => {
   // Print the result
   console.log(completedTasksCount);
 });
-

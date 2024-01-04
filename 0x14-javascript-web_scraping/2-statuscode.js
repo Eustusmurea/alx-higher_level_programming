@@ -18,4 +18,3 @@ request(url, (error, response) => {
 
   console.log('Status Code:', response.statusCode);
 });
-
